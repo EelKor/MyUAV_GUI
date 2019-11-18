@@ -15,8 +15,7 @@ class GUI_base:
         
 
     def setTitle(self,title):
-        self.title = title
-        self.win.title(self.title)
+        self.win.title(title)
 
     
     def createTab(self, name1, name2=0, name3=0, name4=0, name5=0):
@@ -45,13 +44,30 @@ class GUI_base:
 
     def showTab(self):
          self.tabControl.pack(expand=1, fill="both")
+        
 
 
     def createLabelFrame(self, _object, title):
         
         self.labelframe.append(ttk.LabelFrame(_object, text=title))
         self.LabelFrameID.append(title)
+
         
 
-    def showLabelFrameID(self, title):
+    def searchLabelFrameID(self, title):
+        print("=====Search -> LabelFrameID=====")
         print(title + ": " , self.LabelFrameID.index(title))
+        
+
+
+    def showLabelFrameID(self):
+        print("========LabelFrameID========")
+        for i in range(len(self.labelframe)):
+            print(self.LabelFrameID[i] + " -> ", i)
+
+        print("============================")
+
+        
+            
+        
+
