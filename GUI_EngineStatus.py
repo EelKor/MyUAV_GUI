@@ -1,7 +1,8 @@
 from GUI_base import GUI_base
 from tkinter import ttk
+from tkinter import Menu
 
-class GUI_EngineControl(GUI_base):
+class GUI_EngineStatus(GUI_base):
 
     def __init__(self):
         super().__init__()
@@ -35,3 +36,4 @@ test_menu = Menu(menu_bar, tearoff=0)
 test_menu.add_command(label="Test")
 test_menu.add_command(label="Stop")
 menu_bar.add_cascade(label="Test", menu=test_menu)
+
