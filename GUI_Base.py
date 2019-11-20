@@ -8,10 +8,14 @@ class GUI_base:
     
     def __init__(self):
         self.win = tk.Tk()
-        self.menu_bar = Menu(self.win)
-        self.win.config(menu=self.menu_bar)
+        
         self.labelframe = []
         self.LabelFrameID = []
+        
+        self.menuCount = 0
+        self.menu_bar = []
+        self.menu = []
+        
         
 
     def setTitle(self,title):
@@ -67,7 +71,25 @@ class GUI_base:
 
         print("============================")
 
-        
+
+
+    def createMenu(self):
+        if self.menuCount == 0:
+            self.menu_bar = Menu(self.win)
+            self.win.config(menu=self.menu_bar)
+            self.menu.append(Menu(self.menu_bar, tearoff=0))
             
+        else :
+            self.menu.append(Menu(self.menu_bar, tearoff=0))
+
+    def addMenulist(self, _label, _command1):
+        self.menu[self.menuCount].add_command(label=_label, command=_command1)
+        self.menu[self.menuCount].add_separator()
+
+    
+            
+    def showMenu(self, _label):
+        self.menu_bar.add_cascade(label=_label, menu=self.menu[self.menuCount])
+        self.menuCount += 1
         
 
